@@ -13,6 +13,7 @@
 - 5. Crear tablas (User por ejemplo) y cada una lleva 2 funciones:
   - 5.1 funcion 👉repr que nos ayuda a mostrar el objeto cuando queramos debuguearlo.
   - 5.2 funcion 👉serialize que sirve para reresentar los datos o columnas de la tabla.
+    ![tabla usuarios](imagsReadme\tabla_users.JPG)
 
 ## Instalaciones y dependencias en la terminal:
 
