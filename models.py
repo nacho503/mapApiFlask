@@ -15,3 +15,6 @@ class User(db.Model): # paso 5
       "email":self.email,
       "password":self.password
     }
+  
+
+
