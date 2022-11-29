@@ -45,7 +45,7 @@
 - 9 Pasos para que se cree, reconozca la bbdd:
   - Nota 🚨error "RuntimeError: Either 'SQLALCHEMY_DATABASE_URI' or 'SQLALCHEMY_BINDS' must be set."
   - 🧑‍🔧Se arreglo moviendo el app.config despues del app=FLASK(**name**)
-  - Se importo psycopg2-binary
+  - Se instalo psycopg2-binary
   - 9.1 En la ⚠️terminal:
     - 9.1.1 flask db init (dio error de la nota)
     - 9.1.2 flask db migrate
@@ -62,3 +62,14 @@
 ## Para arrancar la BBDD:
 
 - Asegurarse que se hizo en la ⚠️terminal de git bash⚠️ pipenv shell, aplicar pasos del 9.1
+
+# JWT
+
+1. ⚠️pipenv install, importaciones y el setup 🔗(https://flask-jwt-extended.readthedocs.io/en/stable/basic_usage/):
+
+- Nota: Se recomienda poner la variable del app.config["JWT_SECRET_KEY"]=VARIABLE en el archivo de env.py.
+- Nota: Se volvieron a instalar las dependencias anteriores pero ahora con el pip install...
+- 1.1 pip install Flask-JWT
+- 1.2 pip install Flask-JWT-Extended
+
+2. Ruta LOGIN con POST para crear token
