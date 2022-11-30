@@ -1,3 +1,13 @@
+# Modelo de datos:
+
+-Agregar img cuando este mas avanzado.
+
+# Rutas:
+
+1. create_user : POST para crear usuario.
+2. login: POST para ingresar y devolver datos usuario + token JWT.
+3. create_mark: POST para ingresar un punto en el mapa con descripcion y resto datos de usuarios.
+
 # Pasos Flask SqlAlchemy
 
 1. app.py : Archivo con la aplicacion principal.
@@ -61,7 +71,8 @@
 
 ## Para arrancar la BBDD:
 
-- Asegurarse que se hizo en la ⚠️terminal de git bash⚠️ pipenv shell, aplicar pasos del 9.1
+- Asegurarse que se hizo en la ⚠️terminal de git bash⚠️ pipenv shell, aplicar pasos del 9.1.
+- ⚠️⚠️⚠️Cada vez que se modifique el modelo, eliminar y crear denuevo en el PGadmin y aplicar los comandos del 9.1 (estando con pipenv shell)
 
 # JWT
 

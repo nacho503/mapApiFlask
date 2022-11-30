@@ -1,6 +1,6 @@
 from flask import Flask,request,jsonify #paso 6
 from flask_sqlalchemy import SQLAlchemy
-from models import db, User
+from models import db, User,Mapa
 from flask_cors import CORS
 from flask_migrate import Migrate
 ###JWT paso 1
@@ -23,10 +23,6 @@ jwt = JWTManager(app)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 #Paso 7
-@app.route('/', methods=["GET"]) #GET, POST, PUT, DELETE
-def home():
-  return 'Hello Flask API'
-
 @app.route('/create_user',methods = ["POST"])
 def create_user():
   user = User()
@@ -50,6 +46,25 @@ def login():
 
     access_token = create_access_token(identity=user.email)
     return jsonify({"token":access_token,"user":user.email})
+
+# Crear un punto en el mapa, PENDIENTE MODIFICAR QUE SEA BAJO AUORIZACION CON TOKEN
+@app.route("/create_mark", methods=["POST"])
+#aqui debe ir lo del token
+def create_mark():
+  mapa = Mapa()
+  mapa.titulo = request.json.get('titulo')
+  mapa.lat = request.json.get('lat')
+  mapa.long = request.json.get('long')
+  mapa.fecha = request.json.get('fecha')
+  mapa.id_user_fk = request.json.get('id_user_fk')
+  mapa.descrip = request.json.get('descrip')
+  mapa.monto = request.json.get('monto')
+  mapa.direccion = request.json.get('direccion')
+
+  db.session.add(mapa)
+  db.session.commit()
+
+  return jsonify(mapa.serialize()), 200
 
 if __name__ == "__main__": #paso 6
   app.run(host="localhost", port=8080)
