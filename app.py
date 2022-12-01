@@ -44,19 +44,20 @@ def login():
         # the user was not found on the database
       return jsonify({"msg": "Bad email or password"}), 40
 
-    access_token = create_access_token(identity=user.email)
-    return jsonify({"token":access_token,"user":user.email})
+    access_token = create_access_token(identity=user.id)
+    return jsonify({"token":access_token,"user":user.email,"id":user.id})
 
 # Crear un punto en el mapa, PENDIENTE MODIFICAR QUE SEA BAJO AUORIZACION CON TOKEN
 @app.route("/create_mark", methods=["POST"])
-#aqui debe ir lo del token
+@jwt_required()#Lo del token
 def create_mark():
   mapa = Mapa()
+  current_user_id=get_jwt_identity()
   mapa.titulo = request.json.get('titulo')
   mapa.lat = request.json.get('lat')
   mapa.long = request.json.get('long')
   mapa.fecha = request.json.get('fecha')
-  mapa.id_user_fk = request.json.get('id_user_fk')
+  mapa.id_user_fk = current_user_id
   mapa.descrip = request.json.get('descrip')
   mapa.monto = request.json.get('monto')
   mapa.direccion = request.json.get('direccion')
