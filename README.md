@@ -1,19 +1,21 @@
-# Modelo de datos:
+### PASAR TODO A INGLES
 
--Agregar img cuando este mas avanzado.
+# Data Model:
 
-# Rutas:
+- Add img when difinitive model is ready.
 
-1. create_user : POST para crear usuario.
-2. login: POST para ingresar y devolver datos usuario + token JWT.
-3. create_mark: POST para ingresar un punto en el mapa con descripcion y resto datos de usuarios.
+# Routes:
 
-# Pasos Flask SqlAlchemy
+1. create_user : POST for user.
+2. login: POST for login and gives user data + JWT token.
+3. create_mark: POST for putting a dot with data in the Map.
 
-1. app.py : Archivo con la aplicacion principal.
-2. models.py : Archivo con los modelos de datos.
+# Steps for FLASk SQLALCHEMY
 
-- 3 Ejecutar 📢pipenv shell en gitbash.
+1. app.py : Main app file.
+2. models.py : Data model.
+
+- 3 Execute 📢pipenv shell in gitbash.
   - 3.1 📢Para python usar gitbash como terminal.
   - 3.2 📢pipenv shell se va a usar siempre para hacer andar la API.
   - 3.3 ⚠️terminal: pipenv shell Para crear el ambiente virtual, para mantener "encapsulado" el proyecto.
