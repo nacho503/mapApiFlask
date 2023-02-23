@@ -53,14 +53,14 @@ def login():
 def create_mark():
   mapdata = MapData()
   current_user_id=get_jwt_identity()
-  mapdata.title= request.json.get('title')
-  mapdata.lat = request.json.get('lat')
-  mapdata.long = request.json.get('long')
-  mapdata.fecha = request.json.get('date')
-  mapdata.id_user_fk = current_user_id
-  mapdata.descrip = request.json.get('descrip')
-  mapdata.monto = request.json.get('amount')
-  mapdata.address = request.json.get('address')
+  mapdata.title= request.json.get('title') #
+  mapdata.lat = request.json.get('lat') #
+  mapdata.long = request.json.get('long') #
+  mapdata.date = request.json.get('date') #
+  mapdata.id_user_fk = current_user_id #
+  mapdata.descrip = request.json.get('descrip') #
+  mapdata.amount = request.json.get('amount') #
+  mapdata.address = request.json.get('address') #
 
   db.session.add(mapdata)
   db.session.commit()

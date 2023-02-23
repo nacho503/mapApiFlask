@@ -16,9 +16,9 @@
 2. models.py : Data model.
 
 - 3 Execute 📢pipenv shell in gitbash.
-  - 3.1 📢Para python usar gitbash como terminal.
-  - 3.2 📢pipenv shell se va a usar siempre para hacer andar la API.
-  - 3.3 ⚠️terminal: pipenv shell Para crear el ambiente virtual, para mantener "encapsulado" el proyecto.
+  - 3.1 📢for python use gitbash in the terminal.
+  - 3.2 📢pipenv shell always for running the API.
+  - 3.3 ⚠️terminal: pipenv shell for creating the virtual ambient, it "encapsulates" the project.
 
 4. Importar e instanciar SQL Alchemy en models.py .
 
@@ -71,9 +71,9 @@
   3. flask-cors.
   4. psycopg2-binary
 
-## Para arrancar la BBDD:
+## To run DB:
 
-- Asegurarse que se hizo en la ⚠️terminal de git bash⚠️ pipenv shell, aplicar pasos del 9.1.
+- Make sure that on ⚠️terminal git bash⚠️ pipenv shell was done, aplicar pasos del 9.1.
 - ⚠️⚠️⚠️Cada vez que se modifique el modelo, eliminar y crear denuevo en el PGadmin y aplicar los comandos del 9.1 (estando con pipenv shell)
 
 # JWT

@@ -23,7 +23,7 @@ class MapData(db.Model): #id, titulo, lat, long, fecha, id_user_fk, descrip, mon
   title=db.Column(db.String(30),nullable=False)
   lat = db.Column(db.Float,nullable=False) #db.Numeric(precision=8, asdecimal=False, decimal_return_scale=None)
   long = db.Column(db.Float,nullable=False) 
-  date= db.Column(db.DateTime(250),nullable=True)
+  date= db.Column(db.String(11),nullable=False) #worked previously with 
   id_user_fk=db.Column(db.Integer,db.ForeignKey('user.id'),nullable=False)
   descrip=db.Column(db.String(999),nullable=False)
   amount = db.Column(db.Integer,nullable=True)#Puede ser nulo para dar opcion de precio a convenir
