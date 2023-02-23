@@ -29,11 +29,11 @@
 
     ![tabla usuarios](/imagsReadme/tabla_users.JPG)
 
-- 6 Hacer CRUD parte 1:
+- 6 Steps for building CRUD part 1:
 
-  - 6.1 En app.py importar fask.
-  - 6.2 Instanciar Flask y configurar el puerto.
-  - 6.3 Con esto ya podemos levantar el servidor ejecutando en el ⚠️terminal: python app.py (siempre que se haya ejecutado 📢pipenv shell).
+  - 6.1 On app.py import flask.
+  - 6.2 Instance Flask and configure port.
+  - 6.3 Execute: ⚠️terminal: python app.py and it is ready for use (after 📢pipenv shell), follow next steps...
 
     ![app py 1](/imagsReadme/app_py_1.JPG)
 
