@@ -47,7 +47,13 @@ def login():
     access_token = create_access_token(identity=user.id)
     return jsonify({"token":access_token,"user":user.email,"id":user.id})
 
-# Crear un punto en el mapa, PENDIENTE MODIFICAR QUE SEA BAJO AUORIZACION CON TOKEN
+@app.route("/get_marks_all",method=["GET"])
+def get_marks_all():
+  map_marks=MapData.query.all()
+  map_marks=list(map(lambda map_mark_i: map_mark_i.serialize(),map_marks))
+  return jsonify(map_marks),200
+
+#Creates mark on map
 @app.route("/create_mark", methods=["POST"])
 @jwt_required()#Lo del token
 def create_mark():
