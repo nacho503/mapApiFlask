@@ -5,6 +5,7 @@ class User(db.Model): # paso 5
   id = db.Column(db.Integer, primary_key=True)
   email= db.Column(db.String(50), nullable=False, unique=True)
   password = db.Column(db.String(10), nullable=False)
+  user_name = db.Column(db.String(20), nullable=False)
 
   mapdata = db.relationship('MapData',backref='user',lazy=True)
 
@@ -15,7 +16,8 @@ class User(db.Model): # paso 5
     return{
       "id":self.id,
       "email":self.email,
-      "password":self.password
+      "password":self.password,
+      "user_name": self.user_name
     }
   
 class MapData(db.Model): #id, titulo, lat, long, fecha, id_user_fk, descrip, monto, direccion
@@ -43,5 +45,6 @@ class MapData(db.Model): #id, titulo, lat, long, fecha, id_user_fk, descrip, mon
       "descrip":self.descrip,
       "amount":self.amount,
       "address":self.address,
-      "user_email" :self.user.email
+      "user_email" :self.user.email,
+      "user_name": self.user.user_name
     }

@@ -28,6 +28,7 @@ def create_user():
   user = User()
   user.email = request.json.get("email")
   user.password = request.json.get("password")
+  user.user_name = request.json.get("user_name")
 
   db.session.add(user)
   db.session.commit()
@@ -39,16 +40,16 @@ def create_user():
 def login():
     email = request.json.get("email", None)
     password = request.json.get("password", None)
-    user = User.query.filter_by( email = email,password=password ).first()
+    user = User.query.filter_by( email = email,password=password).first()
     if user is None:
         # the user was not found on the database
       return jsonify({"msg": "Bad email or password"}), 400
 
     access_token = create_access_token(identity=user.id)
-    return jsonify({"token":access_token,"user":user.email,"id":user.id})
+    return jsonify({"token":access_token,"user":user.user_name,"id":user.id,"email":user.email})
 
-@app.route("/get_marks_all",method=["GET"])
-def get_marks_all():
+@app.route("/get_marks_all",methods=["GET"])
+def all_marks():
   map_marks=MapData.query.all()
   map_marks=list(map(lambda map_mark_i: map_mark_i.serialize(),map_marks))
   return jsonify(map_marks),200
