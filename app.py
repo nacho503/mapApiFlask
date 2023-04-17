@@ -54,6 +54,8 @@ def all_marks():
   map_marks=list(map(lambda map_mark_i: map_mark_i.serialize(),map_marks))
   return jsonify(map_marks),200
 
+
+
 #Creates mark on map
 @app.route("/create_mark", methods=["POST"])
 @jwt_required()#Lo del token

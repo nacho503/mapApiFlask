@@ -20,16 +20,17 @@ class User(db.Model): # paso 5
       "user_name": self.user_name
     }
   
-class MapData(db.Model): #id, titulo, lat, long, fecha, id_user_fk, descrip, monto, direccion
+class MapData(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   title=db.Column(db.String(30),nullable=False)
-  lat = db.Column(db.Float,nullable=False) #db.Numeric(precision=8, asdecimal=False, decimal_return_scale=None)
+  lat = db.Column(db.Float,nullable=False) 
   long = db.Column(db.Float,nullable=False) 
-  date= db.Column(db.String(11),nullable=False) #worked previously with 
+  date= db.Column(db.String(11),nullable=False) 
   id_user_fk=db.Column(db.Integer,db.ForeignKey('user.id'),nullable=False)
   descrip=db.Column(db.String(999),nullable=False)
-  amount = db.Column(db.Integer,nullable=True)#Puede ser nulo para dar opcion de precio a convenir
+  amount = db.Column(db.Integer,nullable=True)
   address = db.Column(db.String(100),nullable=False)
+  cluster_number_ = db.Column(db.Integer, db.ForeignKey('map_cluster.id'), nullable=True) #Refference to the cluster of points
 
   def __repr__(self):
     return "<Tittle %r>" %self.tittle
@@ -46,5 +47,28 @@ class MapData(db.Model): #id, titulo, lat, long, fecha, id_user_fk, descrip, mon
       "amount":self.amount,
       "address":self.address,
       "user_email" :self.user.email,
-      "user_name": self.user.user_name
+      "user_name": self.user.user_name,
+      "cluster_number":self.cluster_number_
+    }
+
+  class MapCluster(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    cluster_number = db.Column(db.Integer, nullable=False)
+    cluster_lat = db.Column(db.Float, nullable=False)
+    cluster_long = db.Column(db.Float, nullable=False)
+    map_data_id = db.Column(db.Integer, db.ForeignKey('map_data.id'), nullable=False)
+    # Define a many-to-one relationship with MapData model
+    map_data = db.relationship('MapData', backref=db.backref('clusters', lazy=True))
+
+  def __repr__(self):
+    return "<Tittle %r>" %self.cluster_number
+
+  def serialize(self):
+    return{
+      "id":self.id,
+      "cluster_number":self.cluster_number,
+      "cluster_long":self.cluster_long,
+      "cluster_lat":self.cluster_lat,
+      "map_data_id":self.map_data_id,
+      "map_data_title": self.mapdata.title
     }

@@ -20,12 +20,12 @@
   - 3.2 📢pipenv shell always for running the API.
   - 3.3 ⚠️terminal: pipenv shell for creating the virtual ambient, it "encapsulates" the project.
 
-4. Importar e instanciar SQL Alchemy en models.py .
+4. Import & instantiate SQLAlchemy in models.py.
 
-- 5 Crear tablas (User por ejemplo) y cada una lleva 2 funciones:
+- 5 Create tables (User, MapData) and each with two functions:
 
-  - 5.1 funcion 👉repr que nos ayuda a mostrar el objeto cuando queramos debuguearlo.
-  - 5.2 funcion 👉serialize que sirve para reresentar los datos o columnas de la tabla.
+  - 5.1 👉repr: It shows the object so it is easier to debug it.
+  - 5.2 👉serialize: Which shows the created object.
 
     ![tabla usuarios](/imagsReadme/tabla_users.JPG)
 
@@ -37,7 +37,7 @@
 
     ![app py 1](/imagsReadme/app_py_1.JPG)
 
-- 7 CRUD parte 2:
+- 7 CRUD part 2:
 
   - 7.1 Crear rutas en app.py (GET, POST, PUT, DELETE).
   - 7.2 En app.py importar SQLAlchemy de flask_sqlalchemy y de models, importar db y el modelo (Users).
